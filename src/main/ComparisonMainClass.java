@@ -21,17 +21,17 @@ public class ComparisonMainClass {
 			path2 = download(path2.trim());
 			if(path1.isEmpty() || path2.isEmpty())
 				throw new Exception("Empty paths are not valid");
-			Autom treeAlg=new Autom();
+			CallTreeComparison treeAlg=new CallTreeComparison();
 			System.out.println("Tree method is calculated");
 			double	treeSim=path1.equals(path2)?1:treeAlg.executeComparison(path1, path2,"CT1"); //set CT1,CT2 or CT3. If you don't set nothing of these, it will execute the CT1 method.
 			
-			Auto tokenAlg=new Auto();
+			FileTokenComparison tokenAlg=new FileTokenComparison();
 			System.out.println("File token method is calculated");
 			double tokenSim=path1.equals(path2)?1:tokenAlg.executeTwoFiles(path1, path2);
-			functionTokens.features.Automation funTokenAlg=new functionTokens.features.Automation();
+			FunctionTokenComparison funTokenAlg=new FunctionTokenComparison();
 			System.out.println("Function token method is calculated");
 			double functionSim=path1.equals(path2)?1:funTokenAlg.executeTwoFiles(path1, path2);
-			LSA.features.Automation lsaALg=new LSA.features.Automation();
+			LSAComparison lsaALg=new LSAComparison();
 			System.out.println("LSA method is calculated");
 			double lsaSim=path1.equals(path2)?1:lsaALg.executeTwoFiles(path1,path2,"LSA"); //set SVD or LSA. If you don't set nothing of these, it will execute the LSA method. 
 			String ret = "";
